@@ -1,14 +1,9 @@
 <template>
-<section class="section bg">
-        <div class="container is-widescreen">
-            <PlayerList></PlayerList>
+<div id="game-view">
+        <PlayerList></PlayerList>
 
-            <!--- QUESTION AND ANSWER  -->
-            
-            <QuestionAnswer></QuestionAnswer>
-            
-        </div>
-    </section>  
+        <QuestionAnswer></QuestionAnswer>
+    </div>
 </template>
 
 <script>
@@ -34,8 +29,8 @@ export default {
 }
 
 .card-scoreboard {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .question-box {
@@ -55,6 +50,28 @@ export default {
     background-image: url("https://images.unsplash.com/photo-1509664158680-07c5032b51e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   
 }
+
+#top-area {
+    margin-bottom: 20px;
+
+}
+
+#bottom-area {
+    margin-top: 20px;
+}
+
+#game-view {
+
+ background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/az_subtle.png');
+ background-repeat: repeat;
+
+}
+
+#question-bg {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 
 
 </style>
