@@ -168,9 +168,9 @@ export default {
         console.log('bener')
         this.$socket.emit('get_player_score', this.score)
 
-        const player1 = this.players.filter(
-          (el) => el.name === localStorage.getItem('username')
-        )
+        // const player1 = this.players.filter(
+        //   (el) => el.name === localStorage.getItem('username')
+        // )
         const indexPlayer = this.players
           .map(function (e) {
             return e.name

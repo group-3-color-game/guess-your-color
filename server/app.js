@@ -118,7 +118,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     io.emit('user_connected', { msg: 'welcomeeee!', players })
     socket.on('get_player', (player) => {
-       
+       socket.name = player
         players.push({ name: player, score: 0 })
         console.log(players, ' ini dari server')
         io.emit('show_player', players)
@@ -139,6 +139,12 @@ io.on('connection', (socket) => {
 
     socket.on('play_game', () => {
         io.emit('playing')
+    })
+
+    socket.on('reset_player', ()=>{
+        console.log('reset_player')
+        players = []
+        io.emit('reset_player')
     })
 
       socket.on('disconnect', () => {

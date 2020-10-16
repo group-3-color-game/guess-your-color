@@ -169,9 +169,9 @@ export default {
         console.log('bener')
         this.$socket.emit('get_player_score', this.score)
 
-        const player1 = this.players.filter(
-          (el) => el.name === localStorage.getItem('username')
-        )
+        // const player1 = this.players.filter(
+        //   (el) => el.name === localStorage.getItem('username')
+        // )
         const indexPlayer = this.players
           .map(function (e) {
             return e.name
@@ -183,9 +183,13 @@ export default {
         this.$socket.emit('add_score', indexPlayer)
         console.log(this.players, '>>>>INI PLAYER<<<<<')
         console.log(this.players.score, 'ini score ')
-      } else {
+      } 
+      else {
         console.log('salah')
         console.log(this.players, '>>>>INI PLAYER<<<<<')
+      }
+      if(this.indexQuestions === 19 ){
+        this.$socket.emit('reset_player')
       }
     },
     startGame () {
@@ -214,7 +218,12 @@ export default {
     },
     playing: function () {
       this.play = true
+    },
+    reset_player: function () {
+      this.players = []
+      this.indexQuestions = 0
     }
+
   },
   components: {},
   computed: {

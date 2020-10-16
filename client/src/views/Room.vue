@@ -21,8 +21,8 @@ export default {
   },
   methods: {
     createRoom () {
-      this.rooms.push(room)
-      console.log(rooms)
+      // this.rooms.push(room)
+      // console.log(rooms)
     }
   }
 }
