@@ -29,21 +29,21 @@
 
 <script>
 export default {
-  name: "Home",
-  data() {
+  name: 'Home',
+  data () {
     return {
-      username: "",
-    };
+      username: ''
+    }
   },
   sockets: {
-    user_connected: (data) => {},
+    user_connected: (data) => {}
   },
   methods: {
-    setUsername() {
-      localStorage.username = this.username;
-    },
-  },
-};
+    setUsername () {
+      localStorage.username = this.username
+    }
+  }
+}
 </script>
 <style scoped>
 span {

@@ -110,126 +110,126 @@
 // @ is an alias to /src
 
 export default {
-  name: "About",
-  data() {
+  name: 'About',
+  data () {
     return {
-      username: "",
+      username: '',
       players: [],
       questions: [],
-      textColor: "",
+      textColor: '',
       playerScore: [1, 2, 3, 4],
       indexQuestions: 0,
       roomFull: false,
-      messages: "Sorry, this room is full",
+      messages: 'Sorry, this room is full',
       login: false,
-      play: false,
-    };
+      play: false
+    }
   },
   methods: {
-    getUsername() {
+    getUsername () {
       if (this.players.length > 3) {
-        this.roomFull = true;
+        this.roomFull = true
       } else {
         // this.players.push(this.username);
-        this.$socket.emit("get_player", this.username);
-        localStorage.setItem("username", this.username);
-        console.log(this.players, "ini");
-        this.player++;
-        this.username = "";
-        this.login = true;
+        this.$socket.emit('get_player', this.username)
+        localStorage.setItem('username', this.username)
+        console.log(this.players, 'ini')
+        this.player++
+        this.username = ''
+        this.login = true
       }
     },
 
-    fActiveColor() {
-      console.log("questions");
+    fActiveColor () {
+      console.log('questions')
       // let keys = this.questions[this.indexQuestions].key;
       // this.textColor = this.questions[this.indexQuestions].answer[keys];
       // console.log(this.textColor, "ini warna");
     },
-    getScore(answer) {
-      console.log(answer, ">>> ini answer dari button kiri");
-      this.checkScore(answer);
-      this.indexQuestions++;
+    getScore (answer) {
+      console.log(answer, '>>> ini answer dari button kiri')
+      this.checkScore(answer)
+      this.indexQuestions++
     },
 
-    getScore2(answer) {
-      console.log(answer, " >>> ini answer dari button kanan");
-      this.checkScore(answer);
-      this.indexQuestions++;
+    getScore2 (answer) {
+      console.log(answer, ' >>> ini answer dari button kanan')
+      this.checkScore(answer)
+      this.indexQuestions++
     },
-    checkScore(answer) {
-      const key = this.questions[this.indexQuestions].key;
-      const data = this.questions[this.indexQuestions].answer;
+    checkScore (answer) {
+      const key = this.questions[this.indexQuestions].key
+      const data = this.questions[this.indexQuestions].answer
 
-      console.log(key, ">>> ini KEY dari check score <<<<");
-      console.log(data, ">>> ini DATA dari check score <<<<");
+      console.log(key, '>>> ini KEY dari check score <<<<')
+      console.log(data, '>>> ini DATA dari check score <<<<')
 
       if (data.indexOf(answer) === key) {
-        console.log("bener");
-        this.$socket.emit("get_player_score", this.score);
+        console.log('bener')
+        this.$socket.emit('get_player_score', this.score)
 
         const player1 = this.players.filter(
-          (el) => el.name === localStorage.getItem("username")
-        );
-        let indexPlayer = this.players
+          (el) => el.name === localStorage.getItem('username')
+        )
+        const indexPlayer = this.players
           .map(function (e) {
-            return e.name;
+            return e.name
           })
-          .indexOf(localStorage.getItem("username"));
+          .indexOf(localStorage.getItem('username'))
 
         // console.log(indexPlayer, ">> Index players");
 
-        this.$socket.emit("add_score", indexPlayer);
-        console.log(this.players, ">>>>INI PLAYER<<<<<");
-        console.log(this.players.score, "ini score ");
+        this.$socket.emit('add_score', indexPlayer)
+        console.log(this.players, '>>>>INI PLAYER<<<<<')
+        console.log(this.players.score, 'ini score ')
       } else {
-        console.log("salah");
-        console.log(this.players, ">>>>INI PLAYER<<<<<");
+        console.log('salah')
+        console.log(this.players, '>>>>INI PLAYER<<<<<')
       }
     },
-    startGame() {
-      this.$socket.emit("play_game");
-    },
+    startGame () {
+      this.$socket.emit('play_game')
+    }
   },
   sockets: {
     user_connected: function (data) {
-      this.players = data.players;
-      console.log(data.players);
+      this.players = data.players
+      console.log(data.players)
     },
     show_player: function (players) {
-      this.players = players;
+      this.players = players
     },
     reload_user: function (dataPlayers) {
-      this.players = dataPlayers;
-      console.log(this.players, " ini dari reload_usaer ");
-      console.log("masuuk");
+      this.players = dataPlayers
+      console.log(this.players, ' ini dari reload_usaer ')
+      console.log('masuuk')
     },
     generate_question_data: function (data) {
-      this.questions = data;
-      this.colors = data[0].answer[0];
+      this.questions = data
+      this.colors = data[0].answer[0]
     },
     player_score: function (data) {
-      this.score = data;
+      this.score = data
     },
     playing: function () {
-      this.play = true;
-    },
+      this.play = true
+    }
   },
   components: {},
   computed: {
-    indexPlayer() {
-      let pos = this.players
+    indexPlayer () {
+      const pos = this.players
         .map(function (e) {
-          return e.name;
+          return e.name
         })
-        .indexOf(localStorage.getItem("username"));
-      return pos;
-    },
+        .indexOf(localStorage.getItem('username'))
+      return pos
+    }
   },
-  created() {
-    this.fActiveColor();
-  },
-};
+  created () {
+    this.fActiveColor()
+  }
+}
 </script>
 
 <style>

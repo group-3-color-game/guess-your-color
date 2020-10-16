@@ -6,10 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     page: false,
-    username : ''
+    username: ''
   },
   mutations: {
-    USERNAME(state, payload) {
+    USERNAME (state, payload) {
       state.page = payload
     }
   },
