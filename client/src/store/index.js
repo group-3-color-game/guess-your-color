@@ -5,9 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    
+
   },
   mutations: {
+    USERNAME(state, payload) {
+      state.page = payload
+    }
   },
   actions: {
     getPlayerBackground() {
