@@ -14,11 +14,11 @@
                 </div>
               </div>
               <div class="card-content">
-                <div calass="media">
+                <div class="media">
                   <div class="media-left">
                     <figure class="image is-48x48">
                       <img
-                        src="https://bulma.io/images/placeholders/96x96.png"
+                        src="https://avatar.oxro.io/avatar.svg?name=X&background=f39c12"
                         alt="Placeholder image"
                       />
                     </figure>
@@ -42,10 +42,13 @@
       </div>
       <br />
 
+  
+
       <form @submit.prevent="getUsername" v-if="!login">
         <input type="text" v-model="username" />
         <button class="btn btn-dark">Submit</button>
       </form>
+
       <button v-if="indexPlayer === 0" @click="startGame">START</button>
       <p v-if="roomFull === true">{{ messages }}</p>
 
@@ -110,7 +113,7 @@
 // @ is an alias to /src
 
 export default {
-  name: "About",
+  name: "Game",
   data() {
     return {
       username: "",
