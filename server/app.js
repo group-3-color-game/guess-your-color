@@ -3,10 +3,6 @@ const http = require('http').createServer(app)
 const port = process.env.PORT || 3000
 const io = require('socket.io')(http)
 
-app.get('/',(req,res)=>{
-    res.send('welcome to choose your color game')
-})
-
 let players = []
 
 let questionData = [
