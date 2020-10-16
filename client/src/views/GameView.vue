@@ -1,3 +1,26 @@
+<template>
+<div id="game-view">
+        <PlayerList></PlayerList>
+
+        <QuestionAnswer></QuestionAnswer>
+    </div>
+</template>
+
+<script>
+import PlayerList from "../components/PlayerList"
+import QuestionAnswer from "../components/QuestionAnswer"
+
+export default {
+    name: 'GameView',
+    components: {
+        PlayerList,
+        QuestionAnswer
+    }
+
+}
+</script>
+
+<style>
 .option-box {
     font-family: 'Permanent Marker', cursive;
 
@@ -36,3 +59,19 @@
 #bottom-area {
     margin-top: 20px;
 }
+
+#game-view {
+
+ background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/az_subtle.png');
+ background-repeat: repeat;
+
+}
+
+#question-bg {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+</style>
