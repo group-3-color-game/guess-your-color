@@ -5,11 +5,11 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home
+  // },
   {
     path: '/room',
     name: 'Room',
@@ -17,6 +17,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "room" */ '../views/Room.vue')
+  },
+  {
+    path: '/',
+    name: 'Game',
+    component: () => import(/* webpackChunkName: "game" */ '../views/Game.vue')
   }
 ]
 
