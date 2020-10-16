@@ -150,6 +150,6 @@ io.on('connection', (socket) => {
 // console.log(questionData)
 console.log(players)
 
-http.listen(3000, () => {
-    console.log(`app running on port *${port}`)
+http.listen(port, () => {
+    console.log(`app running on port ${port}`)
 })
